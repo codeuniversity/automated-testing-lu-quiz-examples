@@ -4,6 +4,17 @@ These are all the examples for the quiz in the second Automated Testing LU sessi
 
 ## Example 1
 
+```javascript
+test('BankAccount: Withdraw from Account', (account) => {
+    const transaction = account.deposit(5)
+
+    expect(account.withdraw(5)).equals(true)
+    expect(account.withdraw(1)).equals(false)
+    account.setOverdraftLimit(1)
+    expect(account.withdraw(1)).equals(true)
+})
+```
+
 ## Example 2
 
 ```javascript
