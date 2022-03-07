@@ -61,3 +61,14 @@ test('User repository should save userdata to database', () => {
 ```
 
 ## Example 4
+
+```java
+/** Return a date object representing the start of the next minute from now */
+public Date nextMinuteFromNow() {
+    long nowAsMillis = System.currentTimeMillis();  
+    Date then = new Date(nowAsMillis + 60000);  
+    then.setSeconds(0);  
+    then.setMilliseconds(0);  
+    return then;
+}
+```
