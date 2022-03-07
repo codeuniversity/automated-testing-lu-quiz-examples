@@ -4,6 +4,8 @@ These are all the examples for the quiz in the second Automated Testing LU sessi
 
 ## Example 1
 
+## Example 2
+
 ```javascript
 test('user can log in and change their username', (I) => {
     // automatically open a browser tab with this url
@@ -35,7 +37,7 @@ test('user can log in and change their username', (I) => {
 })
 ```
 
-## Example 2
+## Example 3
 
 ```javascript
 import { testFramework } from 'test-framework'
@@ -57,3 +59,5 @@ test('User repository should save userdata to database', () => {
     expect(saveToTableMock).toHaveBeenCalledWith('users', user)
 })
 ```
+
+## Example 4
