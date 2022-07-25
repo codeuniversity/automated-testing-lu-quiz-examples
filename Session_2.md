@@ -6,7 +6,8 @@ These are all the examples for the quiz in the second Automated Testing LU sessi
 
 ```javascript
 test('BankAccount: Withdraw from Account', (account) => {
-    const transaction = account.deposit(5)
+    account.setBalance(0)
+    account.deposit(5)
 
     expect(account.withdraw(5)).equals(true)
     expect(account.withdraw(1)).equals(false)
@@ -18,6 +19,11 @@ test('BankAccount: Withdraw from Account', (account) => {
 ## Example 2
 
 ```javascript
+// NOTE:
+// You can assume all functions like "fillField" have a built-in way of waiting
+// until the necessary element exists, and if the element doesn't exist until a
+// previously-specified timeout, the test fails.
+
 test('user can log in and change their username', (I) => {
     // automatically open a browser tab with this url
     I.amOnPage('https://myawesomewebsite.com/')
@@ -51,19 +57,18 @@ test('user can log in and change their username', (I) => {
 ## Example 3
 
 ```javascript
-import { testFramework } from 'test-framework'
+import { createMockFunction } from 'test-framework'
 import { userRepository } from './userRepository'
-import { db } from './db'
 
 test('User repository should save userdata to database', () => {
     // given
     const user = { name: "Anna", age: 28 }
-    const saveToTableMock = testFramework.createMockFunction(
+    const saveToTableMock = createMockFunction(
         function(table, data) {
             console.log('TABLE:', table, '| data:', data)
         }
     )
-    userRepository.mock(db, { saveToTable: saveToTableMock })
+    userRepository.mock({ saveToTable: saveToTableMock })
     // when
     userRepository.saveUser(user)
     // then
@@ -73,13 +78,14 @@ test('User repository should save userdata to database', () => {
 
 ## Example 4
 
-```java
-/** Return a date object representing the start of the next minute from now */
-public Date nextMinuteFromNow() {
-    long nowAsMillis = System.currentTimeMillis();  
-    Date then = new Date(nowAsMillis + 60000);  
-    then.setSeconds(0);  
-    then.setMilliseconds(0);  
-    return then;
-}
+```python
+def nextMinuteFromNow():
+    '''
+    Return a date object representing the start of the next minute from now
+    '''
+    nowAsMillis = currentTimeInMilliseconds()
+    then = Date(nowAsMillis + 60000)
+    then.setSeconds(0)
+    then.setMilliseconds(0)
+    return then
 ```

@@ -26,7 +26,7 @@ test('email validation fails on a wrong email', () => {
 
 ```javascript
 import { db } from './db'
-import { validateEmail } from './validators'
+import { saltAndHash } from './security'
 
 function createUser(email, password) {
     const preliminaryUsername = email.split('@')[0]
@@ -50,12 +50,12 @@ test('createUser should extract the username from the email', () => {
 
 ## Example 3
 
-```java
-public class User {
+```python
+class User:
     ...
-    public String getName() {
-        return this.name
-    }
+
+    def getName(self):
+        return self.name
+
     ...
-}
 ```
