@@ -4,5 +4,6 @@ Code examples relevant for the quizzes in the automated software testing learnin
 
 Which session's quiz are you doing?
 
-- [Session 1](Session_1.md)
 - [Session 2](Session_2.md)
+- [Session 3](Session_3.md)
+- [Session 4](Session_4.md)
