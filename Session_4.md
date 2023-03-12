@@ -75,17 +75,3 @@ test('User repository should save userdata to database', () => {
     expect(saveToTableMock).toHaveBeenCalledWith('users', user)
 })
 ```
-
-## Example 4
-
-```python
-def nextMinuteFromNow():
-    '''
-    Return a date object representing the start of the next minute from now
-    '''
-    nowAsMillis = currentTimeInMilliseconds()
-    then = Date(nowAsMillis + 60000)
-    then.setSeconds(0)
-    then.setMilliseconds(0)
-    return then
-```
