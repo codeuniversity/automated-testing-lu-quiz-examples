@@ -1,6 +1,6 @@
-# Session 1
+# Session 2
 
-These are all the examples for the quiz in the first Automated Testing LU session!
+These are all the examples for the quiz in the second Automated Testing LU session.
 
 ## Example 1
 
