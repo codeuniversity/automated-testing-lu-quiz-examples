@@ -57,7 +57,7 @@ def nextMinuteFromNow():
 
 ## Example 4
 
-```python
+```javascript
 import { db } from './db'
 import { saltAndHash } from './security'
 
