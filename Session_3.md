@@ -25,6 +25,9 @@ def get_user_name_from_user_array(user):
 
 ```python
 # Returns index of x in arr if present, else -1
+# Parameters:
+#   arr: Sorted array
+#   low, high: upper and lower bounds
 def binary_search(arr, low, high, x):
     if high >= low:
         mid = (high + low) // 2
