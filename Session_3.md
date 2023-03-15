@@ -4,17 +4,52 @@ These are all the examples for the quiz in the third Automated Testing LU sessio
 
 ## Example 1
 
---> Function with side effect
-
 ```python
-
+def get_user_name_from_user_array(user):
+   user_name = user['data']['name']
+   first_name = user_name['first']
+   last_name = user_name['last']
+   logging.info('Name: ' + first_name + ' ' + last_name)
+   if first_name and last_name:
+       return first_name + ' ' + last_name
+   else:
+       if first_name:
+           return first_name
+       elif last_name:
+           return last_name
+       else:
+           return ''
 ```
 
 ## Example 2
 
---> pure fct
-
 ```python
+# function to perform quicksort
+def quickSort(array, low, high):
+
+    def partition(array, low, high):
+        pivot = array[high]
+        i = low - 1
+ 
+        for j in range(low, high):
+            if array[j] <= pivot:
+                i = i + 1
+                (array[i], array[j]) = (array[j], array[i])
+        (array[i + 1], array[high]) = (array[high], array[i + 1])
+        return i + 1
+ 
+    if low < high:
+ 
+        # Find pivot element such that
+        # element smaller than pivot are on the left
+        # element greater than pivot are on the right
+        pi = partition(array, low, high)
+ 
+        # Recursive call on the left of pivot
+        quickSort(array, low, pi - 1)
+ 
+        # Recursive call on the right of pivot
+        quickSort(array, pi + 1, high)
 ```
 
 ## Example 3
