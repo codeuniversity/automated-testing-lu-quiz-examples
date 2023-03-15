@@ -24,26 +24,18 @@ def get_user_name_from_user_array(user):
 ## Example 2
 
 ```python
-def quickSort(array, low, high):
-
-    def partition(array, low, high):
-        pivot = array[high]
-        i = low - 1
- 
-        for j in range(low, high):
-            if array[j] <= pivot:
-                i = i + 1
-                (array[i], array[j]) = (array[j], array[i])
-        (array[i + 1], array[high]) = (array[high], array[i + 1])
-        return i + 1
- 
-    if low < high:
-        # Find pivot element such that
-        # elements smaller than pivot are on the left
-        # elements greater than pivot are on the right
-        pi = partition(array, low, high)
-        quickSort(array, low, pi - 1)
-        quickSort(array, pi + 1, high)
+# Returns index of x in arr if present, else -1
+def binary_search(arr, low, high, x):
+    if high >= low:
+        mid = (high + low) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] > x:
+            return binary_search(arr, low, mid - 1, x)
+        else:
+            return binary_search(arr, mid + 1, high, x)
+    else:
+        return -1
 ```
 
 ## Example 3
