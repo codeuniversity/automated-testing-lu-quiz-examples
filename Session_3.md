@@ -24,7 +24,6 @@ def get_user_name_from_user_array(user):
 ## Example 2
 
 ```python
-# function to perform quicksort
 def quickSort(array, low, high):
 
     def partition(array, low, high):
