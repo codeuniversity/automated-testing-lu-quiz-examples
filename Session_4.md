@@ -18,6 +18,8 @@ test('BankAccount: Withdraw from Account', (account) => {
 
 ## Example 2
 
+## Example 3
+
 ```python
 # You can assume that:
 # * all functions like "get_by_role" have a built-in way of waiting
@@ -54,7 +56,7 @@ def test_user_can_log_in_and_change_their_username(page: Page):
     expect(page.locator("body")).to_contain_text("Username: mynewusername")
 ```
 
-## Example 3
+## Example 4
 
 ```javascript
 import { createMockFunction } from 'test-framework'
