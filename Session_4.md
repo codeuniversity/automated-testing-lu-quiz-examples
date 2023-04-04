@@ -75,30 +75,3 @@ test('User repository should save userdata to database', () => {
     expect(saveToTableMock).toHaveBeenCalledWith('users', user)
 })
 ```
-
-## Example 4
-
-```javascript
-import { db } from './db'
-import { saltAndHash } from './security'
-
-function createUser(email, password) {
-    const preliminaryUsername = email.split('@')[0]
-    return db.createUser({
-        name: preliminaryUsername,
-        password: saltAndHash(password),
-    })
-}
-
-test('createUser should extract the username from the email', () => {
-    // given
-    const expectedUsername = 'john'
-    const enteredEmail = expectedUsername + '@example.com'
-    const enteredPassword = 'password123'
-    // when
-    const createdUser = createUser(enteredEmail, enteredPassword)
-    // then
-    expect(createdUser.name).toBe(expectedUsername)
-})
-```
-
