@@ -18,42 +18,40 @@ test('BankAccount: Withdraw from Account', (account) => {
 
 ## Example 2
 
-```javascript
-// NOTE:
-// You can assume that:
-// * all functions like "fillField" have a built-in way of waiting
-//   until the necessary element exists, and if the element doesn't exist until
-//   a previously-specified timeout, the test fails.
-// * The tests run using a test database with predetermined content
+```python
+# You can assume that:
+# * all functions like "get_by_role" have a built-in way of waiting
+#   until the necessary element exists, and if the element doesn't exist until
+#   a previously-specified timeout, the test fails.
+# * The tests run using a test database with predetermined content
 
-test('user can log in and change their username', (I) => {
-    // automatically open a browser tab with this url
-    I.amOnPage('https://myawesomewebsite.com/')
+def test_user_can_log_in_and_change_their_username(page: Page):
+    # automatically open a browser tab with this url
+    page.goto("https://myawesomewebsite.com")
 
-    // automatically click on the first button containing “Login or Sign up”
-    I.click('Login or Sign up')
-    // fill the first input with label “Email”
-    I.fillField('Email', 'john.doe@example.org')
-    I.fillField('Password', 'password123')
-    // click the first button containing “Login”
-    I.click('Login')
+    # click on the first button containing "Login or Sign up"
+    page.get_by_role("link", name="Log in or Sign Up").click()
 
-    // verify that the browser shows the text “Dashboard” somewhere
-    I.shouldSee('Dashboard')
+    # fill the first input with label "Email"
+    page.get_by_label("Email").fill("john.doe@example.org")
+    page.get_by_label("Password").fill("password123")
+    # click the first button containing "Login"
+    page.get_by_role("button", name="Login").click()
+    
+    # verify that the browser shows the text "Dashboard" somewhere
+    expect(page.locator("body")).to_contain_text("Dashboard")
+    
+    # click the first button containing "Settings"
+    page.get_by_role("link", name="Settings").click()
+    # verify that the browser shows the text "Username: john.doe" somewhere
+    expect(page.locator("body")).to_contain_text("Username: john.doe")
 
-    // click the first button containing “Settings”
-    I.click('Settings')
+    # fill input with label "Username"
+    page.get_by_label("Username").fill("mynewusername")
+    page.get_by_role("button", name="Save")
 
-    // verify that the browser shows the text “Username: john.doe” somewhere
-    I.shouldSee('Username: john.doe')
-
-    // fill input with label “Username”
-    I.fillField('Username', 'mynewusername')
-    I.click('Save')
-
-    // verify that the page shows “Username: mynewusername” somewhere
-    I.shouldSee('Username: mynewusername')
-})
+    # verify that the page shows "Username: mynewusername" somewhere
+    expect(page.locator("body")).to_contain_text("Username: mynewusername")
 ```
 
 ## Example 3
