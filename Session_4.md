@@ -18,6 +18,30 @@ test('BankAccount: Withdraw from Account', (account) => {
 
 ## Example 2
 
+```python
+def test_create_user(client):
+    # when
+    response = client.post("/persons/create", data={
+        "first_name": "John",
+        "last_name": "Smith",
+    })
+
+    # then
+    assert "John Smith" in response.text
+    from_db = Person.find_by_last_name(last_name="Smith")
+    assert from_db.first_name == "John"
+    assert from_db.last_name == "Smith"
+
+
+def test_list_users(client):
+    # when
+    response = client.get("/persons")
+
+    # then
+    assert response.text == '[{"first_name":"John","last_name":"Smith"}]'
+```
+    
+    
 ## Example 3
 
 ```python
