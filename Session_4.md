@@ -20,9 +20,11 @@ test('BankAccount: Withdraw from Account', (account) => {
 
 ```javascript
 // NOTE:
-// You can assume all functions like "fillField" have a built-in way of waiting
-// until the necessary element exists, and if the element doesn't exist until a
-// previously-specified timeout, the test fails.
+// You can assume that:
+// * all functions like "fillField" have a built-in way of waiting
+//   until the necessary element exists, and if the element doesn't exist until
+//   a previously-specified timeout, the test fails.
+// * The tests run using a test database with predetermined content
 
 test('user can log in and change their username', (I) => {
     // automatically open a browser tab with this url
