@@ -74,7 +74,7 @@ def test_user_can_log_in_and_change_their_username(page: Page):
 
     # fill input with label "Username"
     page.get_by_label("Username").fill("mynewusername")
-    page.get_by_role("button", name="Save")
+    page.get_by_role("button", name="Save").click()
 
     # verify that the page shows "Username: mynewusername" somewhere
     expect(page.locator("body")).to_contain_text("Username: mynewusername")
