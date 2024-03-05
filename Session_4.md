@@ -41,46 +41,7 @@ def test_list_users(client):
     assert response.text == '[{"first_name":"John","last_name":"Smith"}]'
 ```
     
-    
 ## Example 3
-
-```python
-# You can assume that:
-# * all functions like "get_by_role" have a built-in way of waiting
-#   until the necessary element exists, and if the element doesn't exist until
-#   a previously-specified timeout, the test fails.
-# * The tests run using a test database with predetermined content
-
-def test_user_can_log_in_and_change_their_username(page: Page):
-    # automatically open a browser tab with this url
-    page.goto("https://myawesomewebsite.com")
-
-    # click on the first button containing "Login or Sign up"
-    page.get_by_role("link", name="Log in or Sign Up").click()
-
-    # fill the first input with label "Email"
-    page.get_by_label("Email").fill("john.doe@example.org")
-    page.get_by_label("Password").fill("password123")
-    # click the first button containing "Login"
-    page.get_by_role("button", name="Login").click()
-    
-    # verify that the browser shows the text "Dashboard" somewhere
-    expect(page.locator("body")).to_contain_text("Dashboard")
-    
-    # click the first button containing "Settings"
-    page.get_by_role("link", name="Settings").click()
-    # verify that the browser shows the text "Username: john.doe" somewhere
-    expect(page.locator("body")).to_contain_text("Username: john.doe")
-
-    # fill input with label "Username"
-    page.get_by_label("Username").fill("mynewusername")
-    page.get_by_role("button", name="Save").click()
-
-    # verify that the page shows "Username: mynewusername" somewhere
-    expect(page.locator("body")).to_contain_text("Username: mynewusername")
-```
-
-## Example 4
 
 ```javascript
 import { createMockFunction } from 'test-framework'
